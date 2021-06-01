@@ -24,6 +24,23 @@ public class SelectionSort {
 		}
 	}
 
+	private static void selectionSortRecur(int[] arr) {
+		selectionSortRecur(arr, 0);
+	}
+
+	private static void selectionSortRecur(int[] arr, int start) {
+		if (start < arr.length - 1) {
+			int min_index = start;
+
+			for (int i = start; i < arr.length; i++) {
+				if (arr[i] < arr[min_index])
+					min_index = i;
+			}
+			swap(arr, start, min_index);
+			selectionSortRecur(arr, start + 1);
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner stdIn = new Scanner(System.in);
 

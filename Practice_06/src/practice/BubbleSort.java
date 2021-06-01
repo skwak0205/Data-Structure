@@ -22,6 +22,21 @@ public class BubbleSort {
 		}
 	}
 
+	private static void bubbleSortRecur(int[] arr) {
+		bubbleSortRecur(arr, arr.length - 1);
+	}
+
+	private static void bubbleSortRecur(int[] arr, int last) {
+		if (last > 0) {
+			for (int i = 1; i <= last; i++) {
+				if (arr[i - 1] > arr[i]) {
+					swap(arr, i - 1, i);
+				}
+			}
+			bubbleSortRecur(arr, last - 1);
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
